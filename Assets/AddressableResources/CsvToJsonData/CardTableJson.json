@@ -1,0 +1,10 @@
+{
+    "Items": [
+        {
+            "id": 1,
+            "name": "点燃",
+            "description": "xxx",
+            "cardCommand": "5|0|0|0|0|0,4|1|1|0|0|0"
+        }
+    ]
+}

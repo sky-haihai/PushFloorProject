@@ -1,0 +1,10 @@
+ID,Name,Description
+特殊效果ID,名称,描述
+1,RemoveCube,消除当前所有触发效果的地块
+2,MoveOnCube,使地块上的单位向着{0}方向移动{1}格
+3,MoveAll,是所有单位向着{0}方向移动{1}格
+4,DamageOnCube,对地块上的单位施加{0}点伤害
+5,DamageAll,是所有单位施加{0}点伤害
+6,AddBuffOnCube,对地块上的单位施加{1}层{0}buff
+7,AddBuffAll,对所有单位施加{1}层{0}buff
+8,SpawnOnCube,在地块上生成{1}个{0}单位

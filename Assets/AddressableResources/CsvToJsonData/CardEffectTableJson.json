@@ -1,0 +1,44 @@
+{
+    "Items": [
+        {
+            "id": 1,
+            "name": "RemoveCube",
+            "description": "消除当前所有触发效果的地块"
+        },
+        {
+            "id": 2,
+            "name": "MoveOnCube",
+            "description": "使地块上的单位向着{0}方向移动{1}格"
+        },
+        {
+            "id": 3,
+            "name": "MoveAll",
+            "description": "是所有单位向着{0}方向移动{1}格"
+        },
+        {
+            "id": 4,
+            "name": "DamageOnCube",
+            "description": "对地块上的单位施加{0}点伤害"
+        },
+        {
+            "id": 5,
+            "name": "DamageAll",
+            "description": "是所有单位施加{0}点伤害"
+        },
+        {
+            "id": 6,
+            "name": "AddBuffOnCube",
+            "description": "对地块上的单位施加{1}层{0}buff"
+        },
+        {
+            "id": 7,
+            "name": "AddBuffAll",
+            "description": "对所有单位施加{1}层{0}buff"
+        },
+        {
+            "id": 8,
+            "name": "SpawnOnCube",
+            "description": "在地块上生成{1}个{0}单位"
+        }
+    ]
+}
