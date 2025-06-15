@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Board;
+using Card;
+using CardEffect;
+using Player;
+using Unit;
 
-public class ThisGame : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public static class ThisGame {
+    public static BoardModule BoardModule { get; internal set; }
+    public static CardModule CardModule { get; internal set; }
+    public static PlayerModule PlayerModule { get; internal set; }
+    public static UnitModule UnitModule { get; internal set; }
 }

@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using XiheFramework.Runtime.Base;
 
-public class UnitModule : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace Unit {
+    public class UnitModule : GameModuleBase {
+        public override int Priority => (int)CoreModulePriority.CustomModuleDefault;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public uint[] GetAllUnitIds() {
+            return Array.Empty<uint>();
+        }
     }
 }

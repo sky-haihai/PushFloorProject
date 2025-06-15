@@ -66,8 +66,22 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: b96b95c68c62384183fd3efcd223fb1a
     GuidInternal: 
-    m_lastTime: -8584519404894043055
-    List: []
+    m_lastTime: -8584519259706767468
+    List:
+    - name: PushFloor_SoundBank
+      guid: 08a0c30ada5a994fb6e0d95c45d080fb
+      id: 3452505847
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b96b95c68c62384183fd3efcd223fb1a
+      - ElementName: PushFloor_SoundBank
+        ObjectType: 7
+        guid: 08a0c30ada5a994fb6e0d95c45d080fb
+      Path: SoundBanks\Default Work Unit\PushFloor_SoundBank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -142,5 +156,5 @@ MonoBehaviour:
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

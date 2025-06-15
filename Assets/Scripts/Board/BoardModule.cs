@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+using XiheFramework.Runtime;
+using XiheFramework.Runtime.Base;
 
-public class BoardModule : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace Board {
+    public class BoardModule : GameModuleBase {
+        public override int Priority => (int)CoreModulePriority.CustomModuleDefault;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public BoardEntity boardEntity;
+
+        public void GetCurrentBoardSize(out int x, out int y) {
+            boardEntity.GetBoardSize(out x, out y);
+        }
+
+        public BoardCoordinate GetBoardCoordinateByMousePosition(Vector2 mouseScreenPosition) {
+            return default;
+        }
+
+        public void SwitchPosition(BoardCoordinate from, BoardCoordinate to) {
+            boardEntity.SwitchPosition(from, to);
+        }
+
+        protected override void OnInstantiated() {
+            base.OnInstantiated();
+
+            ThisGame.BoardModule = this;
+        }
     }
 }

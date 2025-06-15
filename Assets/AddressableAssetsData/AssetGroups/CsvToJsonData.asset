@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CsvToJsonData
+  m_EditorClassIdentifier: 
+  m_GroupName: CsvToJsonData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e33392b032e0e524d98d646f48ac90db
+  m_SerializeEntries:
+  - m_GUID: eef6348f1393412419a4f9f5ceef0fa2
+    m_Address: TextAsset_BuffTableJson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cf62e05769e20434181c9883276f04a9
+    m_Address: TextAsset_CardEffectTableJson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e70ff218408aad940b59b1fba5d4d725
+    m_Address: TextAsset_CardTableJson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 286bc3327193bb64e98b742216d2320b
+    m_Address: TextAsset_UnitTableJson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5415ebcde95e68c48843b214ab079107, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 175a19f7048cd9f4bb7bce2663b7224d, type: 2}
+    - {fileID: 11400000, guid: 9f7ee367f859a6448a5316fb51d530ff, type: 2}
