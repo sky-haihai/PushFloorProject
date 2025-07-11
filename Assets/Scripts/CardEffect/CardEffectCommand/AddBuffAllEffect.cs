@@ -9,7 +9,7 @@ namespace CardEffect.CardEffectCommand {
             ref CardEffectEvaluationData evaluationData) {
             var buffId = (uint)Mathf.RoundToInt(arg0);
             //get all coordinates
-            ThisGame.BoardModule.GetCurrentBoardSize(out int x, out int y);
+            ThisGame.Board.GetCurrentBoardSize(out int x, out int y);
             for (int i = 0; i < x; i++) {
                 for (int j = 0; j < y; j++) {
                     evaluationData.EnqueueAddBuffEffect(new BoardCoordinate(i, j), buffId);

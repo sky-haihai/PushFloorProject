@@ -55,8 +55,6 @@ namespace Card {
                 var effect = evaluationData.addBuffEffectQueue.Dequeue();
                 //add buff
             }
-            
-            
         }
 
         private void RegisterAllCardEffectCommand() {
@@ -83,12 +81,12 @@ namespace Card {
         protected override void OnInstantiated() {
             base.OnInstantiated();
 
-            ThisGame.CardModule = this;
+            ThisGame.Card = this;
 
             RegisterAllCardEffectCommand();
 
             //create card blackboard
-            Game.Blackboard.CreateBlackboard<CardBlackboard>("CardModule_CardBlackboard");
+            CardBlackboard = Game.Blackboard.CreateBlackboard<CardBlackboard>("CardModule_CardBlackboard");
             CardBlackboard.CardInfoList = JsonLoader.LoadDataList<CardInfo>(ResourceAddresses.CsvToJsonData_CardTableJson).ToDictionary(x => x.id);
 
             Game.Event.Subscribe(CardEffectEvents.OnCardEffectTriggeredEventName, OnCardEffectTriggered);

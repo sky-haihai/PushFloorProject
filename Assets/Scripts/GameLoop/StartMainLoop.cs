@@ -1,4 +1,5 @@
 
+using GameConstant;
 using UnityEngine;
 using XiheFramework.Runtime;
 using XiheFramework.Runtime.Resource;
@@ -12,12 +13,12 @@ namespace GameLoop {
         }
 
         private void OnDefaultResourcesLoaded(object sender, object e) {
-            // var fsm = Game.Fsm.CreateStateMachine(GameLoopStatesNames.GameLoopFsm);
-            // fsm.AddState(new EntryState(fsm, GameLoopStatesNames.Entry, Game.Fsm)); //play logo
-            // fsm.AddState(new TitleState(fsm, GameLoopStatesNames.Title, Game.Fsm)); //enter title screen
-            // fsm.AddState(new MainGameState(fsm, GameLoopStatesNames.Game, Game.Fsm)); //main pachinko game
-            // fsm.SetInitialState(GameLoopStatesNames.Entry);
-            // fsm.OnStart();
+            var fsm = Game.Fsm.CreateStateMachine(GameLoopStates.GameLoopFsm);
+            fsm.AddState(new EntryState(fsm, GameLoopStates.Entry, Game.Fsm)); //play logo
+            fsm.AddState(new TitleState(fsm, GameLoopStates.Title, Game.Fsm)); //enter title screen
+            fsm.AddState(new MainGameState(fsm, GameLoopStates.Game, Game.Fsm)); //main pachinko game
+            fsm.SetInitialState(GameLoopStates.Entry);
+            fsm.OnStart();
         }
 
         private void OnDestroy() {

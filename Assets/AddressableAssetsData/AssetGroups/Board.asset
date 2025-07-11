@@ -20,7 +20,13 @@ MonoBehaviour:
   - m_GUID: 280c8f686cb64ba4e840c16a4d18e76b
     m_Address: BoardCellEntity_BoardCellEntity
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
+  - m_GUID: f6e28e94f0eadfa47ad7e91f3d9aa27e
+    m_Address: BoardEntity_BoardEntity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5415ebcde95e68c48843b214ab079107, type: 2}
   m_SchemaSet:

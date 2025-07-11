@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 607027dce42af2449b7b98cfce16f5a5
-  m_SerializeEntries:
-  - m_GUID: 246d93d7141a30f439be88d8ace83014
-    m_Address: UIOverlayEntity_ConsoleUIOverlay
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5415ebcde95e68c48843b214ab079107, type: 2}
   m_SchemaSet:

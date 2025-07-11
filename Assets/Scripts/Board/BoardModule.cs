@@ -25,7 +25,7 @@ namespace Board {
         protected override void OnInstantiated() {
             base.OnInstantiated();
 
-            ThisGame.BoardModule = this;
+            ThisGame.Board = this;
         }
     }
 }

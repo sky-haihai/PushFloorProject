@@ -20,19 +20,23 @@ MonoBehaviour:
   - m_GUID: eef6348f1393412419a4f9f5ceef0fa2
     m_Address: TextAsset_BuffTableJson
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
   - m_GUID: cf62e05769e20434181c9883276f04a9
     m_Address: TextAsset_CardEffectTableJson
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
   - m_GUID: e70ff218408aad940b59b1fba5d4d725
     m_Address: TextAsset_CardTableJson
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
   - m_GUID: 286bc3327193bb64e98b742216d2320b
     m_Address: TextAsset_UnitTableJson
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5415ebcde95e68c48843b214ab079107, type: 2}
   m_SchemaSet:
