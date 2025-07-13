@@ -6,10 +6,10 @@ using XiheFramework.Runtime.Blackboard;
 
 namespace Card {
     public class CardBlackboard : IBlackboard {
-        public Dictionary<uint, CardInfo> CardInfoList { get; set; }
+        public Dictionary<uint, CardInfo> CardInfoDict { get; set; }
 
         public void OnCreated() {
-            CardInfoList = new Dictionary<uint, CardInfo>();
+            CardInfoDict = new Dictionary<uint, CardInfo>();
         }
 
         public void OnRelease() { }

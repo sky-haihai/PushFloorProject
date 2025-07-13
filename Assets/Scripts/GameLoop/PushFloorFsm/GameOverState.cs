@@ -1,6 +1,6 @@
 ﻿using XiheFramework.Runtime.FSM;
 
-namespace GameLoop.PushFloor {
+namespace GameLoop.PushFloorFsm {
     public class GameOverState: State<MainGameState> {
         public GameOverState(StateMachine parentStateMachine, string stateName, MainGameState owner) : base(parentStateMachine, stateName, owner) { }
         protected override void OnEnterCallback() {

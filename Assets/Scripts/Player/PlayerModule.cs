@@ -1,4 +1,5 @@
 using UnityEngine;
+using XiheFramework.Runtime;
 using XiheFramework.Runtime.Base;
 
 namespace Player {
@@ -7,9 +8,16 @@ namespace Player {
 
         public int CurrentPlayerMaxActionCount { get; set; } = 5;
 
+        public PlayerBlackboard playerBlackboard;
+
+        public void ResetPlayerActionPointToMax() {
+            playerBlackboard.currentActionPoint = CurrentPlayerMaxActionCount;
+        }
+
         protected override void OnInstantiated() {
             base.OnInstantiated();
 
+            playerBlackboard= Game.Blackboard.CreateBlackboard<PlayerBlackboard>("PlayerModule_PlayerBlackboard");
             ThisGame.Player = this;
         }
     }

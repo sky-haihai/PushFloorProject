@@ -1,6 +1,6 @@
 ﻿using XiheFramework.Runtime.Blackboard;
 
-namespace GameLoop.PushFloor {
+namespace GameLoop.PushFloorFsm {
     public class PushFloorBlackboard : IBlackboard {
         public int CurrentTurn { get; set; }
         public int PlayerTurnRemainingActionCount { get; set; }

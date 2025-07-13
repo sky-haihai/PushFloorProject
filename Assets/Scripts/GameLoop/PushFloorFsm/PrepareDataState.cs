@@ -1,7 +1,8 @@
-﻿using XiheFramework.Runtime;
+﻿using GameConstant;
+using XiheFramework.Runtime;
 using XiheFramework.Runtime.FSM;
 
-namespace GameLoop.PushFloor {
+namespace GameLoop.PushFloorFsm {
     public class PrepareDataState : State<MainGameState> {
         public PrepareDataState(StateMachine parentStateMachine, string stateName, MainGameState owner) : base(parentStateMachine, stateName, owner) { }
 
@@ -10,7 +11,9 @@ namespace GameLoop.PushFloor {
             pushFloorBlackboard.PlayerTurnRemainingActionCount = ThisGame.Player.CurrentPlayerMaxActionCount;
         }
 
-        protected override void OnUpdateCallback() { }
+        protected override void OnUpdateCallback() {
+            ChangeState(PushFloorGameStates.PlayerTurnState);
+        }
 
         protected override void OnExitCallback() { }
     }

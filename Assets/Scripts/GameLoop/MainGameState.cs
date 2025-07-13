@@ -2,7 +2,8 @@
 using Buff;
 using Card;
 using GameConstant;
-using GameLoop.PushFloor;
+using GameLoop.PushFloorFsm;
+using HandDeck;
 using Player;
 using Unit;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace GameLoop {
             Game.InstantiateGameModule<CardModule>();
             Game.InstantiateGameModule<PlayerModule>();
             Game.InstantiateGameModule<UnitModule>();
+            Game.InstantiateGameModule<HandDeckModule>();
 
             var fsm = Game.Fsm.CreateStateMachine(PushFloorGameStates.PushFloorFsmName);
             fsm.AddState(new PrepareDataState(fsm, PushFloorGameStates.PrepareDataState, this));

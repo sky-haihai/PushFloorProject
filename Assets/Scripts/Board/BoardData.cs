@@ -2,6 +2,7 @@
 using System.Linq;
 
 namespace Board {
+    [Serializable]
     public class BoardData {
         public int RowSize {
             get {
@@ -20,6 +21,10 @@ namespace Board {
         public BoardCellData[,] boardCellData;
 
         public BoardData() { }
+
+        public BoardData(int colSize, int rowSize) {
+            this.boardCellData = new BoardCellData[colSize, rowSize];
+        }
 
         public BoardData(BoardCellData[,] boardCellData) {
             this.boardCellData = boardCellData;

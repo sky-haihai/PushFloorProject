@@ -7,14 +7,23 @@ using XiheFramework.Runtime;
 
 namespace Board {
     public static class BoardHelper {
-        public static bool TryMatchCardTrigger(string cardTrigger, BoardData boardData, out BoardCoordinate[] matchedCoordinates) {
+        /// <summary>
+        /// Try match a card trigger to a given board, return the first coordinates of all matched pattern on the board
+        /// </summary>
+        /// <param name="cardTrigger"></param>
+        /// <param name="boardData"></param>
+        /// <param name="matchedCoordinates"></param>
+        /// <param name="cardTriggerPattern"></param>
+        /// <returns></returns>
+        public static bool TryMatchCardTrigger(string cardTrigger, BoardData boardData, out BoardCoordinate[] matchedCoordinates, out CardTriggerPattern cardTriggerPattern) {
             matchedCoordinates = null;
-            if (cardTrigger.Length == 0) {
+            cardTriggerPattern = null;
+            if (string.IsNullOrEmpty(cardTrigger)) {
                 Game.LogError("card trigger can not be empty");
                 return false;
             }
 
-            if (!ParseTriggerPattern(cardTrigger, out var cardTriggerPattern)) {
+            if (!ParseTriggerPattern(cardTrigger, out cardTriggerPattern)) {
                 return false;
             }
 
@@ -41,7 +50,7 @@ namespace Board {
             return result.Count > 0;
         }
 
-        public static bool MatchPatternAt(BoardData board, BoardCoordinate origin, CardTriggerPattern pattern) {
+        private static bool MatchPatternAt(BoardData board, BoardCoordinate origin, CardTriggerPattern pattern) {
             int maxRow = board.RowSize;
             int maxCol = board.ColSize;
 
@@ -58,7 +67,7 @@ namespace Board {
             return true;
         }
 
-        public static bool ParseTriggerPattern(string cardTrigger, out CardTriggerPattern cardTriggerPattern, int patternWidth = 5) {
+        private static bool ParseTriggerPattern(string cardTrigger, out CardTriggerPattern cardTriggerPattern, int patternWidth = 5) {
             if (cardTrigger.Length == 0) {
                 Game.LogError("card trigger can not be empty");
                 cardTriggerPattern = null;

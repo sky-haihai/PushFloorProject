@@ -20,9 +20,11 @@ namespace Card {
 
         private readonly Dictionary<uint, ICardEffectCommand> m_CardEffectCommands = new();
 
+        #region Public Methods
+
         public void ExecuteCard(CardEffectEvents.OnCardEffectTriggeredEventArgs args) {
             var cardId = args.cardId;
-            var cardInfo = CardBlackboard.CardInfoList[cardId];
+            var cardInfo = CardBlackboard.CardInfoDict[cardId];
 
             var commands = cardInfo.cardCommand.Split(',');
             var evaluationData = new CardEffectEvaluationData();
@@ -32,6 +34,12 @@ namespace Card {
 
             EvaluateCardEffect(evaluationData);
         }
+
+        public CardInfo GetCardInfo(uint cardId) {
+            return CardBlackboard.CardInfoDict.GetValueOrDefault(cardId);
+        }
+
+        #endregion
 
 
         #region Private
@@ -87,7 +95,7 @@ namespace Card {
 
             //create card blackboard
             CardBlackboard = Game.Blackboard.CreateBlackboard<CardBlackboard>("CardModule_CardBlackboard");
-            CardBlackboard.CardInfoList = JsonLoader.LoadDataList<CardInfo>(ResourceAddresses.CsvToJsonData_CardTableJson).ToDictionary(x => x.id);
+            CardBlackboard.CardInfoDict = JsonLoader.LoadDataList<CardInfo>(ResourceAddresses.CsvToJsonData_CardTableJson).ToDictionary(x => x.id);
 
             Game.Event.Subscribe(CardEffectEvents.OnCardEffectTriggeredEventName, OnCardEffectTriggered);
         }

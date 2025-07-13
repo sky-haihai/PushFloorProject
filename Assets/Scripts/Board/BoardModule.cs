@@ -1,4 +1,5 @@
 using System;
+using Card;
 using UnityEngine;
 using UnityEngine.Serialization;
 using XiheFramework.Runtime;
@@ -18,8 +19,22 @@ namespace Board {
             return default;
         }
 
+        public bool TryMatchCardTrigger(uint cardId, out BoardCoordinate[] matchedCoordinates, out CardTriggerPattern cardTriggerPattern) {
+            var cardInfo = ThisGame.Card.GetCardInfo(cardId);
+            if (cardInfo != null) {
+                return boardEntity.TryMatchCardTrigger(cardInfo.cardTrigger, out matchedCoordinates, out cardTriggerPattern);
+            }
+
+            matchedCoordinates = null;
+            cardTriggerPattern = null;
+            return false;
+        }
+
         public void SwitchPosition(BoardCoordinate from, BoardCoordinate to) {
-            boardEntity.SwitchPosition(from, to);
+            if (boardEntity.SwitchPosition(from, to)) {
+                var args = new BoardModuleEvents.OnCellCoordSwitchedEventArgs();
+                Game.Event.Invoke(BoardModuleEvents.OnCellCoordSwitchedEventName, args);
+            }
         }
 
         protected override void OnInstantiated() {
