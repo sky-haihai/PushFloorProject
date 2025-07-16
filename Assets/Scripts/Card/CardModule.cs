@@ -26,13 +26,26 @@ namespace Card {
             var cardId = args.cardId;
             var cardInfo = CardBlackboard.CardInfoDict[cardId];
 
-            var commands = cardInfo.cardCommand.Split(',');
-            var evaluationData = new CardEffectEvaluationData();
-            foreach (var command in commands) {
-                ExecuteEffectCommand(command, args, ref evaluationData);
+            if (cardInfo == null) {
+                Game.LogError($"Card ID:{cardId} does not exist in card Json or not loaded");
+                return;
             }
 
-            EvaluateCardEffect(evaluationData);
+            if (string.IsNullOrEmpty(cardInfo.cardCommand)) {
+                Game.LogWarning($"Card ID:{args.cardId} has no command");
+                return;
+            }
+
+            if (!CardHelper.TryParseCardCommands(cardInfo.cardCommand, out var cardCommands)) {
+                return;
+            }
+
+            var evaluationData = new CardEffectEvaluationData();
+            foreach (var cardEffectStr in cardCommands) {
+                EvaluateCardEffect(cardEffectStr, args, ref evaluationData);
+            }
+
+            ExecuteCardEffectsEvaluationData(evaluationData);
         }
 
         public CardInfo GetCardInfo(uint cardId) {
@@ -41,27 +54,48 @@ namespace Card {
 
         #endregion
 
-
         #region Private
 
-        private void ExecuteEffectCommand(string command, CardEffectEvents.OnCardEffectTriggeredEventArgs onCardEffectTriggeredEventArgs, ref CardEffectEvaluationData evaluationData) {
-            var argStrings = command.Split('|');
-            var args = new List<float>();
-            for (int i = 0; i < argStrings.Length; i++) {
-                if (float.TryParse(argStrings[i], out float result)) {
-                    args.Add(result);
-                }
-            }
-
-            if (m_CardEffectCommands.TryGetValue((uint)args[0], out var cardEffectCommand)) {
-                cardEffectCommand.EnqueueEffect(args[1], args[2], args[3], args[4], args[5], onCardEffectTriggeredEventArgs, ref evaluationData);
+        private void EvaluateCardEffect(CardEffect cardEffect, CardEffectEvents.OnCardEffectTriggeredEventArgs onCardEffectTriggeredEventArgs, ref CardEffectEvaluationData evaluationData) {
+            if (m_CardEffectCommands.TryGetValue(cardEffect.effectId, out var cardEffectCommand)) {
+                var arg0 = cardEffect.args.Length > 0 ? cardEffect.args[0] : 0f;
+                var arg1 = cardEffect.args.Length > 1 ? cardEffect.args[1] : 0f;
+                var arg2 = cardEffect.args.Length > 2 ? cardEffect.args[2] : 0f;
+                var arg3 = cardEffect.args.Length > 3 ? cardEffect.args[3] : 0f;
+                var arg4 = cardEffect.args.Length > 4 ? cardEffect.args[4] : 0f;
+                cardEffectCommand.EnqueueEffect(arg0, arg1, arg2, arg3, arg4, onCardEffectTriggeredEventArgs, ref evaluationData);
             }
         }
 
-        private void EvaluateCardEffect(CardEffectEvaluationData evaluationData) {
+        private void ExecuteCardEffectsEvaluationData(CardEffectEvaluationData evaluationData) {
             while (evaluationData.addBuffEffectQueue.Count > 0) {
                 var effect = evaluationData.addBuffEffectQueue.Dequeue();
                 //add buff
+                
+            }
+            
+            while (evaluationData.spawnOnCellEffectQueue.Count > 0) {
+                var effect = evaluationData.spawnOnCellEffectQueue.Dequeue();
+                //spawn unit
+                
+            }
+            
+            while (evaluationData.unitMoveEffectQueue.Count > 0) {
+                var effect = evaluationData.unitMoveEffectQueue.Dequeue();
+                //move unit
+                
+            }
+            
+            while (evaluationData.unitDamageEffectQueue.Count > 0) {
+                var effect = evaluationData.unitDamageEffectQueue.Dequeue();
+                //damage unit
+                
+            }
+            
+            while (evaluationData.destroyBoardCellQueue.Count > 0) {
+                var effect = evaluationData.destroyBoardCellQueue.Dequeue();
+                //destroy board cell
+                
             }
         }
 

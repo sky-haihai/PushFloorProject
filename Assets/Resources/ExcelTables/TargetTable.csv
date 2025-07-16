@@ -1,0 +1,9 @@
+ID,Name,Description
+特殊效果ID,名称,描述
+1,Cell,地块
+2,EnemyUnit,敌人
+3,AllyUnit,友方
+4,AllUnit,全部单位
+5,Player,玩家
+6,RemovedCell,被消除的地块
+7,IceUnit,冰单位

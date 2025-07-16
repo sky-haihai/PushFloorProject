@@ -1,0 +1,10 @@
+ID,Name,Description
+特殊效果ID,名称,描述
+1,OnRemoveCell,消除地块
+2,OnEveryRemoveCell,每个消除地块
+3,AroundRemoveCell,相邻消除地块
+4,OnRemoveCellLine,消除地块所在方向（横向→列，纵向→行）上的地块
+5,All,全部
+6,Random,随机{}个
+7,HighestHealth,最高生命值
+8,LowestHealth,最低生命值

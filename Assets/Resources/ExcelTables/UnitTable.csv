@@ -1,4 +1,5 @@
-ID,Name,Description,Attack
-单位ID,名称,描述,攻击力
-1,Dummy1,Dummy Mountain,
-2,Moutain2,Dummy Enemy,
+ID,Name,Type,Description,Attack,Health
+单位ID,名称,,描述,攻击力,生命值
+1,Dummy1,,Dummy Mountain,,
+2,冰刺,陷阱,当敌方单位踩到时会爆炸，对周围一格的单位造成1点冰冻伤害，并施加1层冻结Buff,1,1
+3,冰块,障碍,若相邻格子也有冰块则会与其相连成一个整体,0,5
